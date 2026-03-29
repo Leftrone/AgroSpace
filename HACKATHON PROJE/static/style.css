@@ -185,14 +185,15 @@ svg {
         padding: 0.5rem 1rem !important; /* Çok daha dar boşluklar */
         border-radius: 1rem !important;
     }
-    
-    /* Dokunulan panel, telefon web çubuğunun (alttaki adres çubuğunun) altında ezilmesin diye biraz daha yukarı taşındı */
+        /* Fareyle/Dokunmayla gösterilen NDVI değer kutucuğu */
     #hover-panel {
         top: auto !important;
-        bottom: 3.5rem !important; 
+        bottom: 7rem !important; /* Tarayıcının koca alt menüsünü "atlamak" için iyice yukarı çektik */
         left: 0.5rem !important;
         right: 0.5rem !important;
+        padding: 0.75rem !important; /* İç boşluğu iyice kıstık ki kibar dursun */
     }
+
 
     /* Tablonun içindeki şişkinlikleri (boşlukları) daralttık */
     .stats-grid {
