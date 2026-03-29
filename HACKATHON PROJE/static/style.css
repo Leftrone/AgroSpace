@@ -175,29 +175,46 @@ svg {
 }
 
 @media (max-width: 768px) {
-    /* Genel tüm kutuları zorla YUKARI yasla */
+    /* Genel tüm kutuları ince, zarif ve çok az yer kaplayan hale getirdik */
     .floating-card {
-        top: 1rem !important;
+        top: 0.5rem !important;
         bottom: auto !important;
-        left: 1rem !important;
-        right: 1rem !important;
+        left: 0.5rem !important;
+        right: 0.5rem !important;
         width: auto !important;
-        padding: 1rem !important;
+        padding: 0.5rem 1rem !important; /* Çok daha dar boşluklar */
+        border-radius: 1rem !important;
     }
     
-    /* SADECE dokunulan yerin değerini gösteren (Hover) kutusunu zorla AŞAĞI yasla */
+    /* Dokunulan panel, telefon web çubuğunun (alttaki adres çubuğunun) altında ezilmesin diye biraz daha yukarı taşındı */
     #hover-panel {
         top: auto !important;
-        bottom: 2rem !important;
-        left: 1rem !important;
-        right: 1rem !important;
+        bottom: 3.5rem !important; 
+        left: 0.5rem !important;
+        right: 0.5rem !important;
     }
 
-    /* Telefondaki karmaşayı önlemek için yazıları azıcık küçült (İsteğe bağlı) */
+    /* Tablonun içindeki şişkinlikleri (boşlukları) daralttık */
+    .stats-grid {
+        gap: 0.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .stat-label {
+        font-size: 0.65rem !important; /* Konum, Min/Max gibi başlıklar inceldi */
+    }
+
     .stat-value {
-        font-size: 1rem;
+        font-size: 0.9rem !important; /* Değerler ekranı istila etmeyecek kadar küçültüldü */
+    }
+
+    .info-footer {
+        padding-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+        font-size: 0.7rem !important; /* Alt açıklamalar inceltildi */
     }
 }
+
 
 
 }
