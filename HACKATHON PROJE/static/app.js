@@ -195,6 +195,55 @@ function setupInteractions() {
         isPanning = false; 
         container.style.cursor = 'grab';
     });
+    // === DOKUNMATİK EKRAN DESTEĞİ EKLENDİ (Mobil için Kaydırma ve Yakınlaştırma) ===
+    let initialPinchDistance = null;
+    let initialScale = 1;
+
+    container.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) { // Tek parmakla haritayı kaydırma
+            isPanning = true;
+            startX = e.touches[0].clientX - translateX;
+            startY = e.touches[0].clientY - translateY;
+        } else if (e.touches.length === 2) { // İki parmakla yakınlaştırma (Pinch to Zoom)
+            isPanning = false;
+            initialPinchDistance = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+            initialScale = scale;
+        }
+    }, { passive: false });
+
+    container.addEventListener('touchmove', (e) => {
+        e.preventDefault(); // Sayfanın normal olarak (farkında olmadan) kaymasını engelle
+        if (e.touches.length === 1 && isPanning) {
+            translateX = e.touches[0].clientX - startX;
+            translateY = e.touches[0].clientY - startY;
+            updateTransform();
+        } else if (e.touches.length === 2 && initialPinchDistance) {
+            const currentDistance = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+            const nextScale = Math.min(Math.max(initialScale * (currentDistance / initialPinchDistance), 0.1), 100);
+            
+            const centerX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+            const centerY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+            const rect = container.getBoundingClientRect();
+            const mouseX = centerX - rect.left;
+            const mouseY = centerY - rect.top;
+
+            translateX -= (mouseX - translateX) * (nextScale / scale - 1);
+            translateY -= (mouseY - translateY) * (nextScale / scale - 1);
+            scale = nextScale;
+            updateTransform();
+        }
+    }, { passive: false });
+
+    container.addEventListener('touchend', (e) => {
+        if (e.touches.length < 2) initialPinchDistance = null;
+        if (e.touches.length === 0) isPanning = false;
+    });
 
     container.addEventListener('mousemove', (e) => {
         if (!mosaicGrid || isPanning) {
