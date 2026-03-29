@@ -175,29 +175,30 @@ svg {
 }
 
 @media (max-width: 768px) {
-    /* Ana bilgi kartı (Telefonda üstte dursun) */
-    .floating-card:not(.right-panel) {
-        top: 1rem;
-        bottom: auto;
-        left: 1rem;
-        right: 1rem;
-        width: auto;
-        padding: 1rem;
+    /* Genel tüm kutuları zorla YUKARI yasla */
+    .floating-card {
+        top: 1rem !important;
+        bottom: auto !important;
+        left: 1rem !important;
+        right: 1rem !important;
+        width: auto !important;
+        padding: 1rem !important;
     }
-    /* Fareyle/Dokunmayla gösterilen NDVI değer kutucuğu (Telefonda alta insin, üst üste binmesin) */
-    .right-panel {
-        top: auto;
-        bottom: 1rem;
-        left: 1rem;
-        right: 1rem;
-        width: auto;
-        padding: 1rem;
+    
+    /* SADECE dokunulan yerin değerini gösteren (Hover) kutusunu zorla AŞAĞI yasla */
+    #hover-panel {
+        top: auto !important;
+        bottom: 2rem !important;
+        left: 1rem !important;
+        right: 1rem !important;
     }
-    /* Gerekli yazıları mobil için azıcık küçültelim */
+
+    /* Telefondaki karmaşayı önlemek için yazıları azıcık küçült (İsteğe bağlı) */
     .stat-value {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 }
+
 
 }
 
