@@ -188,7 +188,7 @@ svg {
         /* Fareyle/Dokunmayla gösterilen NDVI değer kutucuğu */
     #hover-panel {
         top: auto !important;
-        bottom: 7rem !important; /* Tarayıcının koca alt menüsünü "atlamak" için iyice yukarı çektik */
+        bottom: 9rem !important; /* Tarayıcının koca alt menüsünü "atlamak" için iyice yukarı çektik */
         left: 0.5rem !important;
         right: 0.5rem !important;
         padding: 0.75rem !important; /* İç boşluğu iyice kıstık ki kibar dursun */
