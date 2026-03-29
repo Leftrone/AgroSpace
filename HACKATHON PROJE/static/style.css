@@ -65,6 +65,7 @@ body {
     position: relative;
     overflow: hidden;
     cursor: grab;
+    touch-action: none;
 }
 
 #map-container:active {
@@ -174,13 +175,30 @@ svg {
 }
 
 @media (max-width: 768px) {
-    .floating-card {
-        top: auto;
-        bottom: 2rem;
+    /* Ana bilgi kartı (Telefonda üstte dursun) */
+    .floating-card:not(.right-panel) {
+        top: 1rem;
+        bottom: auto;
         left: 1rem;
         right: 1rem;
         width: auto;
+        padding: 1rem;
     }
+    /* Fareyle/Dokunmayla gösterilen NDVI değer kutucuğu (Telefonda alta insin, üst üste binmesin) */
+    .right-panel {
+        top: auto;
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        width: auto;
+        padding: 1rem;
+    }
+    /* Gerekli yazıları mobil için azıcık küçültelim */
+    .stat-value {
+        font-size: 1.1rem;
+    }
+}
+
 }
 
 #highres-container {
