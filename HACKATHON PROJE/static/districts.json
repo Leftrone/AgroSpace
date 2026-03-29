@@ -1,0 +1,15 @@
+[
+  { "name": "Çankaya", "lat": 39.9208, "lng": 32.8541 },
+  { "name": "Keçiören", "lat": 39.9833, "lng": 32.8667 },
+  { "name": "Kadıköy", "lat": 40.9902, "lng": 29.0208 },
+  { "name": "Beşiktaş", "lat": 41.0430, "lng": 29.0060 },
+  { "name": "Bornova", "lat": 38.4682, "lng": 27.2185 },
+  { "name": "Buca", "lat": 38.3845, "lng": 27.1706 },
+  { "name": "Nilüfer", "lat": 40.2280, "lng": 28.9480 },
+  { "name": "Osmangazi", "lat": 40.1830, "lng": 29.0660 },
+  { "name": "Alanya", "lat": 36.5430, "lng": 31.9960 },
+  { "name": "Muratpaşa", "lat": 36.8833, "lng": 30.7167 },
+  { "name": "Seyhan", "lat": 36.9833, "lng": 35.3167 },
+  { "name": "Şahinbey", "lat": 37.0333, "lng": 37.3167 },
+  { "name": "Keşan", "lat": 40.8547, "lng": 26.6328 }
+]

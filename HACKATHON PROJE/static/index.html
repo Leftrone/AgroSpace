@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye NDVI Veri Portalı</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Veriler Yükleniyor...</p>
+    </div>
+
+    <div id="app" class="unified-map">
+        <main>
+            <div class="stats-panel floating-card">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-label">Min NDVI</div>
+                        <div class="stat-value" id="stat-min">-</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Max NDVI</div>
+                        <div class="stat-value" id="stat-max">-</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Ortalama NDVI</div>
+                        <div class="stat-value" id="stat-mean">-</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Kapsam</div>
+                        <div class="stat-value" id="stat-cov">-</div>
+                    </div>
+                </div>
+                <div class="info-footer">
+                    MODIS (500m) Birleştirilmiş Türkiye Veri Seti
+                </div>
+                <!-- Zoom Control -->
+                <button id="reset-zoom" class="control-btn">Haritayı Sıfırla</button>
+            </div>
+
+            <!-- Sağ Panel (Hover Verisi) -->
+            <div id="hover-panel" class="floating-card right-panel hidden">
+                <div class="stat-item">
+                    <div class="stat-label">Konum</div>
+                    <div class="stat-value text-sm" id="hover-coords">-</div>
+                </div>
+                <div class="stat-item" style="margin-top: 1rem;">
+                    <div class="stat-label">NDVI Değeri</div>
+                    <div class="stat-value" id="hover-ndvi">-</div>
+                </div>
+            </div>
+
+            <section id="map-container">
+                <div id="zoom-wrapper">
+                    <canvas id="ndvi-canvas"></canvas>
+                    <div id="highres-container"></div>
+                    <svg id="overlay-svg"></svg>
+                </div>
+                <div id="patch-loader" class="hidden">Netleştiriliyor... <div class="mini-spinner"></div></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
